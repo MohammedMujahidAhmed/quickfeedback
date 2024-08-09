@@ -26,7 +26,7 @@ export interface User extends Document{
     isVerified:boolean,
     isAcceptingMessage:boolean;
     // this is the typescript type safty bro in the next line, I am writing to remember this that's it
-    message: Message[];
+    messages: Message[];
 }
 
 const UserSchema : Schema<User> = new Schema({
@@ -62,7 +62,7 @@ const UserSchema : Schema<User> = new Schema({
         type:Boolean,
         default:true,
     },
-    message:[MessageSchema],
+    messages:[MessageSchema],
 })
 
 // here we do two Things
