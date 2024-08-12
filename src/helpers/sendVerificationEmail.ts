@@ -8,12 +8,15 @@ export async function sendVerificationEmail(
     verifyCode:string
     ) : Promise<ApiResponse>{
         try{
+            console.log(email)
+            console.log('Attempting to send mail');
             await resend.emails.send({
-                from: 'you@example.com',
+                from: 'Mujahid <onboarding@resend.dev>',
                 to: email,
                 subject: 'quickfeedback Verification code',
                 react: verificationEmail({username,otp:verifyCode}),
               });
+              console.log('send mail successfully');
             return {success:true,message:"email verification code send successfully"};
         }catch(errorMail){
             console.log('Error sending verification mail',errorMail);
